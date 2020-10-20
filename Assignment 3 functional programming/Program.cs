@@ -63,17 +63,18 @@ namespace ImperativeToFunctional
                 }
             };
 
-            int highestPopulation = cities.OrderByDescending(p => p.Population).Select(p => p.Population).First();
+            int highestPopulation = cities.OrderByDescending(c => c.Population).Select(c => c.Population).First();
             Console.WriteLine("Highest population: " + highestPopulation);
 
-            int earliestFounding = cities.OrderBy(p => p.Founded).Select(p => p.Founded).First();
+            int earliestFounding = cities.OrderBy(c => c.Founded).Select(c => c.Founded).First();
             Console.WriteLine("Earliest founding: " + earliestFounding);
 
-            double averagePopulationDensity = Math.Round(cities.Select(p => p.Population / p.Area).Average());
+            double averagePopulationDensity = Math.Round(cities.Select(c => c.Population / c.Area).Average());
             Console.WriteLine("Average population density: " + averagePopulationDensity + " people per square kilometer");
 
             var longNames = cities.Where(c => c.Name.Length > 6).Select(c => c.Name);
             Console.WriteLine("Cities with names longer than six letters: " + String.Join(", ", longNames));
+            // asfasfa
         }
     }
 }
